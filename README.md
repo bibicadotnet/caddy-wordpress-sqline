@@ -1,52 +1,29 @@
-# wordpress-caddy-docker
- A docker-composed based platform for running WordPress with Caddy server V2
+# Caddy Wordpress Sqline
 
-## 🏃 Getting Started
-
-To get your WordPress installation running follow these simple steps.
-
-### Prerequisites
-
-* [Docker](https://www.docker.com/)
-* [Docker Compose](https://docs.docker.com/compose/)
+ ................
 
 
 ### Installation
+1. .........
 
-1. Clone the repo
    ```sh
-   git clone https://github.com/10h30/wordpress-caddy-docker.git
+git clone https://github.com/bibicadotnet/caddy-wordpress-sqline
+cd caddy-wordpress-sqline/
+docker-compose pull && docker-compose up -d
    ```
-2. Go into the created folder
+2. Setup WordPress
    ```sh
-   cd ./wordpress-caddy-docker
-   find . -type f -iname "*.sh" -exec chmod +x {} \;
-   ```
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- USAGE EXAMPLES -->
-## 🚀 Usage
-
-### Install
-
-1. Modify passwords and variables inside ```.env``` file as you wish
-2. Run shell command
-   ```sh
-   ./wp-install.sh
-   ```
-### Init Wordpress Installation
-
-1. Run shell command
-   ```sh
-   ./wp-init.sh
-   ```
-
-### Uninstall
-
-1. Run shell command
-   ```sh
-   ./wp-uninstall.sh
-   ```
+docker compose exec php sh
+cd /tmp
+curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+chmod +x wp-cli.phar
+mv wp-cli.phar /usr/local/bin/wp
+cd /var/www/html
+wp core download --allow-root
+wget --no-check-certificate https://raw.githubusercontent.com/aaemnnosttv/wp-sqlite-db/master/src/db.php -O /var/www/html/wp-content/db.php
+mv /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
+chown -R 82:82 /var/www/html/
+find . -type d -exec chmod 755 {} \;
+find . -type f -exec chmod 644 {} \;
+exit
+   ``` 
