@@ -16,7 +16,7 @@ services:
 
   php:
     image: joseluisq/php-fpm:8.3
-    container_name: wordpress
+    container_name: php
     restart: always
     volumes:
       - ./wordpress/html:/var/www/html
