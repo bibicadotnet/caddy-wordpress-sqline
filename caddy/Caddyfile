@@ -1,6 +1,9 @@
 {$SERVER_NAME} {
 	root * /var/www/html
 	encode zstd gzip
+
+# ssl cloudflare
+#    tls /etc/caddy/Caddyfile/ssl/bibica.net.pem /etc/caddy/Caddyfile/ssl/bibica.net.key.pem
 	
 	 @disallowed {
        path /xmlrpc.php
