@@ -6,6 +6,7 @@
 #    tls /etc/caddy/Caddyfile/ssl/bibica.net.pem /etc/caddy/Caddyfile/ssl/bibica.net.key.pem
 	
 	 @disallowed {
+	path *.sql
        path /xmlrpc.php
         path /wp-content/uploads/*.php
     }
