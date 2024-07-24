@@ -16,6 +16,8 @@ services:
 
   php:
     image: joseluisq/php-fpm:8.3
+    environment:
+      - "ENV_SUBSTITUTION_ENABLE=true"    
     container_name: php
     restart: always
     volumes:
