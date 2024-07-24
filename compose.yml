@@ -15,7 +15,7 @@ services:
       - ./wordpress/html:/var/www/html
 
   wordpress:
-    image: wordpress:php8.3-fpm-alpine
+    image: bibica/sqlite-wordpress:latest
     container_name: wordpress
     restart: always
     volumes:
