@@ -20,5 +20,6 @@ services:
     restart: always
     volumes:
       - ./wordpress/html:/var/www/html
-      - ./config/custom.ini:/usr/local/etc/php/conf.d/custom.ini
+      - ./config/default-php.ini:/usr/local/etc/php/conf.d/default-php.ini
+      - ./config/www.conf:/usr/local/etc/php-fpm.d/www.conf    
     env_file: ./config/.env
