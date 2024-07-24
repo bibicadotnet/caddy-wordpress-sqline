@@ -9,7 +9,7 @@
     rewrite @disallowed /index.php
 
 	# Serve WordPress PHP files through php-fpm:
-	php_fastcgi wordpress:9000
+	php_fastcgi php:9000
 	
 	 @static {
         file
