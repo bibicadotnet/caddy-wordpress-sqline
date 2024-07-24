@@ -11,19 +11,7 @@ git clone https://github.com/bibicadotnet/caddy-wordpress-sqline
 cd caddy-wordpress-sqline/
 docker-compose pull && docker-compose up -d
 ```
-2. Setup WordPress
+2. Setup Wordpress Sqline
 ```
-docker compose exec php sh
-cd /tmp
-curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-chmod +x wp-cli.phar
-mv wp-cli.phar /usr/local/bin/wp
-cd /var/www/html
-wp core download --allow-root
-wget --no-check-certificate https://raw.githubusercontent.com/aaemnnosttv/wp-sqlite-db/master/src/db.php -O /var/www/html/wp-content/db.php
-mv /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
-chown -R 82:82 /var/www/html/
-find . -type d -exec chmod 755 {} \;
-find . -type f -exec chmod 644 {} \;
-exit
+sudo wget https://raw.githubusercontent.com/bibicadotnet/caddy-wordpress-sqline/main/setup_wordpress.sh -O setup_wordpress.sh && sudo chmod +x setup_wordpress.sh && sudo ./setup_wordpress.sh
 ```
