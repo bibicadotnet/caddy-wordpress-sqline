@@ -16,8 +16,7 @@ services:
       - ./wordpress/html:/var/www/html
 
   php:
-#    image: joseluisq/php-fpm:8.3
-    image: bibica/docker-sqlite-wordpress
+    image: joseluisq/php-fpm:8.3
     environment:
       - "ENV_SUBSTITUTION_ENABLE=true"    
     container_name: php
