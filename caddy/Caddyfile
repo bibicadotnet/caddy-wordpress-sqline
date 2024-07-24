@@ -1,3 +1,17 @@
+(wordpress_security) {
+	@forbidden {
+		not path /wp-includes/ms-files.php
+		path /wp-admin/includes/*.php
+		path /wp-includes/*.php
+		path /wp-config.php
+		path /wp-content/uploads/*.php
+		path /.user.ini
+		path /wp-content/debug.log
+		path *.sql
+	}
+	respond @forbidden "Access denied" 403
+}
+
 {$SERVER_NAME} {
 	root * /var/www/html
 	encode zstd gzip
@@ -6,7 +20,6 @@
 #    tls /etc/caddy/Caddyfile/ssl/bibica.net.pem /etc/caddy/Caddyfile/ssl/bibica.net.key.pem
 	
 	 @disallowed {
-	path *.sql
        path /xmlrpc.php
         path /wp-content/uploads/*.php
     }
