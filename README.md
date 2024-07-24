@@ -6,13 +6,13 @@
 ### Installation
 1. .........
 
-   ```sh
+```
 git clone https://github.com/bibicadotnet/caddy-wordpress-sqline
 cd caddy-wordpress-sqline/
 docker-compose pull && docker-compose up -d
-   ```
+```
 2. Setup WordPress
-   ```sh
+```
 docker compose exec php sh
 cd /tmp
 curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
@@ -26,4 +26,4 @@ chown -R 82:82 /var/www/html/
 find . -type d -exec chmod 755 {} \;
 find . -type f -exec chmod 644 {} \;
 exit
-   ``` 
+```
